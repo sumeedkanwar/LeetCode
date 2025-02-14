@@ -1,7 +1,6 @@
 class Solution {
 public:
     bool isValid(string s) {
-        bool flag = true;
         stack<char> list;
 
         for(int i = 0; i < s.length(); i++)
@@ -19,8 +18,7 @@ public:
                 char temp = list.top();
                 if ((temp == '(' && s[i] != ')') || (temp == '{' && s[i] != '}') || (temp == '[' && s[i] != ']'))
                 {
-                    flag = false;
-                    break;
+                    return false;
                 }
                 else
                 {
@@ -32,9 +30,9 @@ public:
 
         if(!list.empty())
         {
-            flag = false;
+            return false;
         }
 
-        return flag;
+        return true;
     }
 };
